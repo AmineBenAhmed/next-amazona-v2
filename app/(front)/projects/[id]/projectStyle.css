@@ -1,0 +1,122 @@
+.card-img-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  border-radius: 1rem;
+}
+
+.card-style {
+  background-color: #D9C0A1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+}
+
+.card-style .card-title-style {
+  text-align: center;
+  font-size: 2.6svw;
+  font-family: Changa;
+  font-weight: 800;
+  line-height: 1.173;
+}
+
+.project-desc {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+.project-img > img {
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 1.2rem;
+  border-bottom-left-radius: 1.2rem;
+}
+
+.project-addr {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5rem;
+}
+
+.project-presentation {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  gap: 3svw;
+  color: #000;
+  margin-top: 1rem;
+  background-color: #FCF9F4;
+  padding: 2rem;
+  width: 88%;
+  border-radius: 1rem;
+
+  .presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 10svw;
+  }
+
+  .presentation {
+    list-style-type: square;
+  }
+
+  .main-points {
+    list-style-type: square;
+  }
+
+}
+
+.project-addr > div {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .card-img-container {
+    display: block;
+  }
+
+  .card-img-container .card-style {
+    width: 100%;
+    border-radius: 0 0 1.2rem 1.2rem;
+  }
+
+  .project-desc {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  .card-style .card-title-style {
+    font-size: 2rem;
+  }
+  .project-stats {
+    line-height: 1.95rem;
+    font-size: 1rem;
+  }
+
+  .project-img > img {
+    border-radius: 1.2rem 1.2rem 0 0;
+  }
+
+  .project-addr {
+    flex-direction: row;
+    width: 12rem;
+  }
+
+  .project-addr > div {
+    width: 8rem;
+  }
+
+  .project-presentation {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 524px) {
+  .project-stats >div:nth-child(2) {
+    display: none;
+  }
+}

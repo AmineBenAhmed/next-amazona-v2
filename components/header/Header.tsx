@@ -1,20 +1,17 @@
 import Link from 'next/link'
 import React from 'react'
+import Menu from './Menu'
+
+import './styles.css'
 
 const Header = () => {
   return (
     <header>
-      <nav className='navbar justify-between bg-base-300'>
+      <nav className='navbar justify-between bg-base-300 navbar-style'>
         <Link href="/" className='btn btn-ghost text-log'>
             Crowdfunding App
         </Link>
-        <Link href="/" className='btn btn-ghost text-log'>
-            Cart
-        </Link>
-        <Link href="/" className='btn btn-ghost text-log'>
-            Sign in
-        </Link>
-
+        <Menu />
       </nav>
     </header>
   )

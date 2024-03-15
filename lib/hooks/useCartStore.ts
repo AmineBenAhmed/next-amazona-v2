@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { round2 } from '../utils'
 import { OrderItem } from '../models/OrderModel'
+import { persist } from 'zustand/middleware'
 
 type Cart = {
   items: OrderItem[]
@@ -18,7 +19,13 @@ const initialState: Cart = {
   totalPrice: 0
 }
 
-export const cartStore = create<Cart>(() => initialState)
+export const cartStore = create<Cart>() (
+  persist(() => initialState, {
+    name: 'cartStore'
+  })
+)
+
+//export const cartStore = create<Cart>(() => initialState)
 
 export default function useCartService() {
   const { items, itemsPrice, taxPrice, shippingPrice, totalPrice } = cartStore()
@@ -46,6 +53,26 @@ export default function useCartService() {
           taxPrice, 
           totalPrice
         })
+    },
+    decrease: (item: OrderItem) => {
+      const exist = items.find(x => x.slug === item.slug)
+      if (!exist) return
+
+      const updatedCartItems = 
+      exist.qty <= 1
+        ? items.filter((orderItem: OrderItem) => orderItem.slug !== item.slug)
+        : items.map((x: OrderItem) => (
+          x.slug ? { ...exist, qty: exist.qty - 1 } : x
+        ))
+
+      const { itemsPrice, shippingPrice, taxPrice, totalPrice } = calcPrice(updatedCartItems)
+      cartStore.setState({
+        items: updatedCartItems,
+        itemsPrice, 
+        shippingPrice, 
+        taxPrice, 
+        totalPrice
+      })
     }
   }
 }

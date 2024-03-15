@@ -1,0 +1,14 @@
+.crwfng-footer {
+  position: relative;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.5rem;
+  background-color: #D9C0A1;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+  margin-top: 2rem;
+}
