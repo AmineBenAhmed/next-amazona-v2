@@ -1,0 +1,170 @@
+.project-navbar {
+  display: flex;
+  justify-content: space-around;
+  color: #000;
+  height: 3rem;
+  width: 88%;
+  background-color: lightgray;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+.project-navbar > button {
+    text-transform: uppercase;
+}
+
+.selected-btn {
+  color: blue;
+  font-size: 1.25rem;
+  text-decoration: underline;
+}
+
+.project-pages {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  font-size: medium;
+  width: 85%;
+}
+
+section > h2 {
+  font-size: 2rem;
+  font-stretch: expanded;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+section > div {
+  min-height: 5svw;
+}
+
+section >  div > p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+section > div > ul > li {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.carousel-container {
+  height: 40svw;
+  padding-top: 4svw;
+}
+
+.pdf-files {
+  background-color: #F7F7F7;
+  min-height: 3svw;
+  padding: 1rem;
+}
+
+.pdf-files h5 {
+  text-align: center;
+}
+
+.project-legal-data {
+  width: 80%;
+  border: 1px solid black;
+  padding: 1.2rem;
+  border-radius: 1rem;
+}
+
+.project-legal-data ul li {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  width: 100%;
+  border-bottom: 0.1rem solid #E6E6E6;
+ }
+
+ .project-legal-data ul > li:last-child {
+  border-bottom: none;
+  margin-bottom: -0.5rem;
+ }
+
+ .nature-projet > li {
+  font-size: 1.2rem;
+ }
+
+ .precommercialisation > li, p {
+   font-size: 1.2rem;
+   line-height: 2.2rem;
+ }
+
+ .precommercialisation p {
+  font-size: 1.4rem;
+ }
+
+ .details-financement h1 {
+   font-size: 3rem;
+   font-family: Changa;
+   font-weight: 800;
+   line-height: 1.173;
+   margin-bottom: 2rem;
+   margin-top: 3rem;
+ }
+
+ .structure-financement h2 {
+  font-size: 2.45rem;
+  font-family: Changa;
+  font-weight: 800;
+  line-height: 1.173;
+  margin-bottom: 2.8rem;
+ }
+
+ .structure-financement table {
+    margin-top: 1rem;
+    width: 80%;
+ }
+
+ .structure-financement table td {
+  text-align: center;
+ }
+
+ .structure-financement table tr {
+  border: 0.15rem solid #E6E6E6;
+ }
+
+ .buget-previsionnel {
+   margin-top: 3rem;
+ }
+
+ .localisation h1 {
+  font-size: 3rem;
+  font-family: Changa;
+  font-weight: 800;
+  line-height: 1.173;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+ }
+
+ .description-emplacement {
+  margin-top: 2.5rem;
+ }
+
+ .description-emplacement li {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  list-style-position: inside;
+ }
+
+@media only screen and (max-width: 1024px) {
+  .project-navbar {
+    width: 100%;
+  }
+
+  .structure-financement table {
+    width: 100%;
+  }
+
+  .buget-previsionnel {
+    width: 100%;
+  }
+}
+
+

@@ -5,11 +5,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import API from '@/lib/api'
-import useProjectService, { Project } from '@/lib/hooks/useProjectStore'
 
 import './projectStyle.css'
 import Progressbar from '@/components/progressbar/Progressbar'
-import Footer from '@/components/footer/Footer'
+import Navbar from './components/Navbar'
 
 export async function generateMetadata({
   params
@@ -68,7 +67,13 @@ export default async function ProductDetails({
                 Le bénéfice dépassera {project.profit} %
               </div>
             </div>
-              <Progressbar minProg={collectedAmountRate} amount={project.collectedAmount} />
+              <Progressbar 
+                minProg={collectedAmountRate}  
+                label="La progression du financement"
+                barColor='#F9FAFB'
+                progressColor='green'
+                dataTip={`Montant collecté ${project.collectedAmount} TND`}
+              />
             <div>
             <div className='space-y-2 text-black' >
               <div className='flex justify-between w-full project-stats'>
@@ -102,21 +107,28 @@ export default async function ProductDetails({
         </div>
       </div>
       <div className='spcace-y-4 project-presentation'>
-        <ul className='presentation' >
-            <b>Présentation</b>
-            <li>Réalisation d’une résidence haut de gamme dans un chalet collectif à proximité immédiate d’un des télésièges de la station de ski Valmorel en Savoie.</li>
-            <li>Pour réaliser cette opération, un permis de construire a été obtenu et purgé de tout recours.</li>
-            <li>Cette opération est réalisée par un opérateur expérimenté et partenaire de WiSEED.</li>
-            <li>Elle propose des remboursements mensuels des intérêts.</li>
+        <div>
+          <b>Présentation</b>
+          <ul className='presentation' >
+            {project.presentation?.map((item: string) => 
+              <li key={item} >{item}</li>)}  
           </ul>
+        </div>
         <div>
           <b>A retenir</b>
           <ul className='main-points'>
-            <li>Emplacement exceptionnel à 50 mètres des pistes de la station de ski Valmorel</li>
-            <li>Commercialisation de 3 lots sur 6 en l’espace de 4 mois</li>
+            {project.mainPoints.map((item: string) => 
+              <li key={item} >{item}</li>)}
           </ul>
         </div>
       </div>
+      <div>
+        <Navbar 
+          projectId={params.id}
+           images={project.photos}
+           name={project.name}
+        />
+    </div>
     </div>
   )
 }

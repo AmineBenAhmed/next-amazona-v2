@@ -1,9 +1,9 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import axios from 'axios'
 import API from '../api';
 
 export type Project = {
+  _id?:                string;
   name:                string;
   governorate:         string;
   city:                string;
@@ -16,20 +16,34 @@ export type Project = {
   description:          string;
   RIB?:                 string;
   photos?:              string[];
+  image:                string;
   ETA?:                 string;
   conductor?:           string;
   status?:              string;
   profit?:             number;
+  presentation?:        string[];
+  mainPoints?:          string[];
+}
+
+export type ProjectDetails = {
+  deepDetails: string[];
+  documents: {name: string, link: string}[];
+  photos?: string[];
+  financingStructure: string[];
+  projectBudget?: string[];
+  investReasons?: string[]
 }
 
 type ProjectState = {
   projects: Project[],
-  projectData: Project | {}
+  projectData: Project | null,
+  projectDetails: ProjectDetails | null
 }
 
 const initialState: ProjectState = {
   projects: [],
-  projectData: {}
+  projectData: null,
+  projectDetails: null
 }
 
 export const projectStore = create<ProjectState>() (
@@ -43,23 +57,32 @@ export const projectStore = create<ProjectState>() (
 export default function useProjectService() {
   const { 
     projects,
-    projectData
+    projectData,
+    projectDetails,
    } = projectStore()
 
   return {
     projects,
     projectData,
+    projectDetails,
     loadProjects: async () => {
       const { data } = await API.get('/project')
       projectStore.setState({
         projects: data
       })
     },
-    loadProjectDetails: async (id: string) => {
+    loadProjectData: async (id: string) => {
       const { data } = await API.get(`/project/${id}`)
 
       projectStore.setState({
         projectData: data 
+      })
+    },
+    loadProjectDetails: async (id: string) => {
+      const { data } = await API.get(`/details/${id}`)
+
+      projectStore.setState({
+        projectDetails: data
       })
     }
   }

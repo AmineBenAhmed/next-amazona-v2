@@ -46,7 +46,7 @@
   gap: 3svw;
   color: #000;
   margin-top: 1rem;
-  background-color: #FCF9F4;
+  background-color: #e6e3df;
   padding: 2rem;
   width: 88%;
   border-radius: 1rem;
@@ -55,15 +55,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 10svw;
+    list-style-type: disc;
   }
 
-  .presentation {
-    list-style-type: square;
+  .presentation > li {
+    margin-bottom: 1rem;
   }
 
   .main-points {
-    list-style-type: square;
+    list-style-type: disc;
+  }
+
+  .main-points > li {
+    margin-bottom: 1rem;
   }
 
 }
@@ -112,6 +116,7 @@
 
   .project-presentation {
     width: 100%;
+    font-size: 0.8rem;
   }
 }
 

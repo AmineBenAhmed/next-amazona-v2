@@ -1,17 +1,30 @@
 import './ProgressbarStyle.css'
 
+type ProgressbarType =   {
+  minProg: number;
+  maxProg?: number;
+  label?: string;
+  barColor?: string;
+  dataTip?: string;
+  progressColor?: string;
+}
+
 const ProgressBar = (
-  {minProg, maxProg, label, amount}: {minProg: number, maxProg?: number, label?: string, amount?: number}
-  ) => (
+  {minProg, maxProg, label, dataTip, barColor, progressColor}: ProgressbarType 
+) => (
   <div className="progressbar-container space-y-2">
-    <label htmlFor="progress">La progression du financement</label>
-    <div className='progressbar'>
+    <label htmlFor="progress">{label}</label>
+    <div className='progressbar' style={{backgroundColor: barColor || '#F9FAFB'}}>
       <div
         className="progress-seg-1 tooltip" 
-        data-tip={`Montant collecté ${amount} TND`}
-        style={{width: `${minProg}%`}}
+        data-tip={dataTip}
+        style={{
+          width: `${minProg}%`, 
+          backgroundColor: progressColor || 'green',
+          color: '#fff'
+        }}
       >
-        
+       {minProg}% 
       </div>
     </div>
   </div>

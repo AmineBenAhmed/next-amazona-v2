@@ -3,15 +3,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { ClockIcon } from '@heroicons/react/24/solid'
+import { Project } from '@/lib/hooks/useProjectStore'
 
-export default function ProductItem({ product }: { product: Product }) {
+export default function ProductItem({ project }: { project: Project }) {
+  if (!project) return <div></div>
   return (
     <div className='card bg-white shadow-xl mb-4'>
       <figure className='border-2 border-green' >
-        <Link href={`/product/${product.slug}`} >
+        <Link href={`/projects/${project?._id}`} >
           <Image
-            src={product.image}
-            alt={product.name}
+            src={project.image}
+            alt={project.name}
             width={300}
             height={300}
             className='object-cover h-64 w-full'
@@ -26,13 +28,11 @@ export default function ProductItem({ product }: { product: Product }) {
 
       </div>
       <div className='card-body bg-white text-black'>
-        <Link href={`/product/${product.slug}`} >
-          <h2 className='card-title font-bold text-2xl'>{product.name?.toUpperCase()}</h2>
+        <Link href={`/product/${project?._id}`} >
+          <h2 className='card-title font-bold text-2xl'>{project.name?.toUpperCase()}</h2>
         </Link>
-        <p className='mb-2' >{product.brand}</p>
-        <p className='mb-2' >{product.description}</p>
+        <p className='mb-2' >{project.description}</p>
         <div className='card-actions flex items-center justify-between'>
-          <span className='text-2xl' >{product.price}$</span>
         </div>
       </div>
     </div>
