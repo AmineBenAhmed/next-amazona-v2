@@ -11,6 +11,7 @@ export type Project = {
   location?:           [number, number];
   minimumAmount:       number;
   estimatedAmount?:     number;
+  collectedAmount?:     number;
   collectProgress?:     number;
   acheivementProgress?: number;
   description:          string;
@@ -37,13 +38,17 @@ export type ProjectDetails = {
 type ProjectState = {
   projects: Project[],
   projectData: Project | null,
-  projectDetails: ProjectDetails | null
+  projectDetails: ProjectDetails | null,
+  projectContributions: number,
+  projectsByType: Project[]
 }
 
 const initialState: ProjectState = {
   projects: [],
   projectData: null,
-  projectDetails: null
+  projectDetails: null,
+  projectContributions: 0,
+  projectsByType: []
 }
 
 export const projectStore = create<ProjectState>() (
@@ -59,20 +64,24 @@ export default function useProjectService() {
     projects,
     projectData,
     projectDetails,
+    projectContributions,
+    projectsByType
    } = projectStore()
 
   return {
     projects,
     projectData,
     projectDetails,
+    projectsByType,
+    projectContributions,
     loadProjects: async () => {
-      const { data } = await API.get('/project')
+      const { data } = await API.get('/projects')
       projectStore.setState({
-        projects: data
+        projects: data.projects
       })
     },
     loadProjectData: async (id: string) => {
-      const { data } = await API.get(`/project/${id}`)
+      const { data } = await API.get(`/projects/${id}`)
 
       projectStore.setState({
         projectData: data 
@@ -83,6 +92,18 @@ export default function useProjectService() {
 
       projectStore.setState({
         projectDetails: data
+      })
+    },
+    getProjectContributions: async (id: string) => {
+      const { data } = await API.get(`/contribution/project/${id}/count`);
+      projectStore.setState({
+        projectContributions: data
+      })
+    },
+    getProjectsByType: async (types: string[]) => {
+      const { data } = await API.get('/projects/type', {params: types});
+      projectStore.setState({
+        projects: data.projects
       })
     }
   }

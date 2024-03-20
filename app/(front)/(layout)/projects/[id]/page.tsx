@@ -1,6 +1,4 @@
-import AddToCart from '@/components/products/AddToCart'
-import { convertDocToObject } from '@/lib/utils'
-import productService from '@/lib/services/productService'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -38,7 +36,10 @@ export default async function ProductDetails({
   return (
     <div className='container relative h-[auto] mt-20'>
       <div className='my-2 text-black font-bold flex' >
-        <Link href='/' >back to projects</Link>
+        <Link
+          className='p-[0.5rem] rounded-[0.3rem] bg-[#D9C0A1]'
+          href='/projects'
+        >back to projects</Link>
       </div>
       <div className='card-img-container'>
         <div className='project-img'

@@ -1,0 +1,101 @@
+.secteurs {
+  font-family: Changa;
+  font-weight: 800;
+  line-height: 1.173;
+  text-align: center;
+  margin: 7rem 0 2rem;
+}
+
+.secteurs h1 {
+  font-size: 3rem;
+}
+
+.desc-text {
+  background-color: #D9C0A1;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.desc-text h1 {
+  font-family: Changa;
+  font-weight: 800;
+  line-height: 1.2;
+  font-size: 3rem;
+}
+
+.categories-list {
+  display: flex;
+  justify-content: center;
+  width: 65svw;
+  margin-left: 8svw;
+}
+
+.contact-button {
+  background-color: #E73E11;
+  padding: 0.5rem;
+  align-self: center;
+  position: fixed;
+  top: 50%;
+  text-align: center;
+  width: 15rem;
+  rotate: -90deg;
+  right: -6rem;
+  font-family: Changa;
+  font-weight: 800;
+  line-height: 1.173;
+  font-size: 2rem;
+  padding: 0.5rem 1.4rem;
+
+}
+
+.contact-card {
+  flex-direction: column;
+  display: flex;
+  padding: 3rem;
+  background-color: #D9C0A1;
+  justify-content: space-evenly;
+  width: 50%;
+  border-radius: 0.5rem;
+}
+
+.contact-card h1 {
+  font-family: Changa;
+  font-weight: 800;
+  line-height: 1.173;
+  font-size: 3rem;
+}
+
+.contact-card p {
+  padding-bottom: 1rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.contact-card button {
+  background-color: #E73E11;
+  padding: 0.5rem;
+  width: 30%;
+  align-self: center;
+}
+
+.info-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1032px) {
+  .secteurs {
+    font-size: 35px;
+    width: 60svw;
+  }
+
+  .contact-card h1 {
+    font-size: 35px;
+  }
+
+  .desc-text h2 {
+    font-size: 1.7rem;
+  }
+}

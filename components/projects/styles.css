@@ -1,0 +1,11 @@
+.image-card {
+  object-fit: cover;
+  padding: -1rem;
+}
+
+@media screen and (max-width: 770px) {
+  .image-card {
+    width: 50svw;
+    margin-left: 15svw;
+  }
+}

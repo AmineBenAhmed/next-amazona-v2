@@ -11,7 +11,7 @@ export default function FrontLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main>
+  return <div className="flex-grow container mx-auto px-4">
     {children}
-  </main>
+  </div>
 }

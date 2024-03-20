@@ -15,11 +15,13 @@
 }
 
 .progress-seg-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 1.2rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   transition: width 1s;
-
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1390px) {

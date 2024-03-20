@@ -1,0 +1,44 @@
+.cover-container {
+  height: 50rem;
+  overflow: hidden;
+  background-image: url("../../public/images/cover.avif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+.cover-container h1 {
+  font-size: 3.8rem;
+  margin-top: 5svw;
+  font-family: Changa;
+  color: #060606;
+  margin-right: 73rem;
+  width: 50rem;
+}
+
+.cover-container .cover-text h2 {
+  font-size: 2.25rem;
+  font-family: Changa;
+  font-weight: 800;
+  line-height: 2.5rem;
+  color: #060606;
+}
+
+.cover-container span {
+  border-bottom: 1rem solid red;
+}
+
+@media screen and (max-width: 1032px) {
+  .cover-container {
+    height: 30rem;
+  }
+
+  .cover-container h1 {
+    font-size: 45px;
+  }
+}
+
+
+

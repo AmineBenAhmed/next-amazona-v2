@@ -16,7 +16,7 @@ const ProgressBar = (
     <label htmlFor="progress">{label}</label>
     <div className='progressbar' style={{backgroundColor: barColor || '#F9FAFB'}}>
       <div
-        className="progress-seg-1 tooltip" 
+        className="progress-seg-1 tooltip text-center" 
         data-tip={dataTip}
         style={{
           width: `${minProg}%`, 
@@ -24,7 +24,7 @@ const ProgressBar = (
           color: '#fff'
         }}
       >
-       {minProg}% 
+       <span>{minProg}%</span>
       </div>
     </div>
   </div>
